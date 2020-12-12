@@ -1,3 +1,5 @@
+<!-- Taken from https://gitlab.com/mbunkus/mkvtoolnix/-/blob/main/examples/matroskachapters.dtd -->
+<!-- Copyright: Moritz Bunkus, Jacob McIntosh -->
 <!ELEMENT Chapters (EditionEntry*)>
 <!ELEMENT EditionEntry (
           EditionUID,
