@@ -1,9 +1,9 @@
 ## convert-chapters 
 
----
+
 Converts chapters extracted from YouTube videos using `youtube-dl` to a format suitable for MKVToolNix.
 
-###Background
+### Background
 
 Some time ago YouTube added a feature that lets creators break up their videos into chapters.  
 `youtube-dl` tool has the option to add chapters to the video being downloaded using `--write-metadata`, but AFAIK there
@@ -13,7 +13,7 @@ This project was created mainly to explore development options with Micronaut an
 see how good does the native image feature work with Jackson and Picocli.
 _(SPOILER: works fine, albeit not without quirks)._
 
-###Building
+### Building
 
 Building requires at least Java 11.
 
@@ -24,7 +24,7 @@ For native image build a GraalVM SDK is required (tested using GraalVM Java 11 2
 Build is executed with `nativeImage` Gradle task: `./gradlew nativeImage`.
 The executable native image is found in `build/native-image`.
 
-###Using
+### Using
 
 ```
 Usage: convert-chapters [-fhV] [-i=<inputLocation>] [-l=<chapterLanguage>]
@@ -48,7 +48,7 @@ The application uses the JSON metadata of a video that can be obtained using `yo
 If redirected to the application, an XML is written to standard out:
 `youtube-dl --print-json -s <URL> | convert-chapters`
 
-###License and Legal Disclaimer
+### License and Legal Disclaimer
 
 This software is licensed under MIT License. Full text can be found in [LICENSE](LICENSE). By using
 the software you agree with the license terms.  
