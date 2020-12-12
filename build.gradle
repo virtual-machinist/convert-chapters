@@ -1,0 +1,55 @@
+plugins {
+  id "com.github.johnrengelman.shadow" version "6.1.0"
+  id "io.micronaut.application" version "1.2.0"
+}
+
+version = "0.1"
+group = "io.github.virtualmachinist"
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+micronaut {
+  testRuntime("junit5")
+  processing {
+    incremental(true)
+    annotations("io.github.virtualmachinist.*")
+  }
+}
+
+dependencies {
+  annotationProcessor group: 'io.micronaut', name: 'micronaut-graal'
+  annotationProcessor group: 'info.picocli', name: 'picocli-codegen', version: '4.2.0'
+  compileOnly group: 'org.graalvm.nativeimage', name: 'svm'
+  implementation group: 'io.micronaut.xml', name: 'micronaut-jackson-xml'
+  implementation group: 'io.micronaut', name: 'micronaut-validation'
+  implementation group: 'io.micronaut', name: 'micronaut-runtime'
+  implementation group: 'info.picocli', name: 'picocli'
+  implementation group: 'io.micronaut.picocli', name: 'micronaut-picocli'
+  implementation group: 'javax.annotation', name: 'javax.annotation-api'
+  runtimeOnly group: 'ch.qos.logback', name: 'logback-classic'
+
+  compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+  annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+
+  testImplementation group: 'org.xmlunit', name: 'xmlunit-assertj3', version: '2.8.1'
+  testImplementation group: 'io.micronaut', name: 'micronaut-http-client'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params'
+  testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.18.1'
+}
+
+
+application {
+  mainClass.set("io.github.virtualmachinist.ConvertChaptersCommand")
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_11
+  targetCompatibility = JavaVersion.VERSION_11
+}
+
+wrapper {
+  distributionType = Wrapper.DistributionType.ALL
+}
